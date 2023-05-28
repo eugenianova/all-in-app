@@ -37,8 +37,8 @@ import com.example.android.newsfeed.R;
 import java.util.List;
 
 /**
- * The WorldFragment is a {@link BaseArticlesFragment} subclass that
- * reuses methods of the parent class by passing the specific type of article to be fetched.
+ * WorldFragment это подкласс {@link BaseArticlesFragment} который переиспользует методы
+ * родительского класса передавая определённый тип статьи, который нужно получить.
  */
 public class WorldFragment extends BaseArticlesFragment {
 
@@ -50,7 +50,7 @@ public class WorldFragment extends BaseArticlesFragment {
         String worldUrl = NewsPreferences.getPreferredUrl(getContext(), getString(R.string.world));
         Log.e(LOG_TAG, worldUrl);
 
-        // Create a new loader for the given URL
+        // Создаём новый Loader для данной URL
         return new NewsLoader(getActivity(), worldUrl);
     }
 }

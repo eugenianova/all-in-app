@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Find the view pager that will allow the user to swipe between fragments
+        // Находим view pager который позволит пользователям переключаться между фрагментаим
         viewPager = findViewById(R.id.viewpager);
 
         // Give the TabLayout the ViewPager

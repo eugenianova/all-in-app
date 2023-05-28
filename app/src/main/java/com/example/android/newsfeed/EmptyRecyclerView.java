@@ -39,10 +39,7 @@ public class EmptyRecyclerView extends RecyclerView {
 
     private View mEmptyView;
 
-    /**
-     * The AdapterDataObserver calls checkIfEmpty() method every time, and it observes
-     * an event that changes the content of the adapter
-     */
+    /** AdapterDataObserver вызывает метод checkIfEmpty() каждый раз, и он наблюдает за событием, которое изменяет содержимое адаптера*/
     final private AdapterDataObserver observer = new AdapterDataObserver() {
         @Override
         public void onChanged() {
@@ -74,13 +71,12 @@ public class EmptyRecyclerView extends RecyclerView {
     }
 
     /**
-     * Checks if both mEmptyView and adapter are not null.
-     * Hide or show mEmptyView depending on the size of the data(item count) in the adapter.
+     * Проверяет, если оба mEmptyView и adapter не NULL
+     * Скрывает или показываем mEmptyView в завсимости от размера  данных(item count) в адаптере.
      */
     private void checkIfEmpty() {
-        // If the item count provided by the adapter is equal to zero, make the empty View visible
-        // and hide the EmptyRecyclerView.
-        // Otherwise, hide the empty View and make the EmptyRecyclerView visible.
+        // Если количество, предоставленное адаптером, равно 0, делаем пустой View видимым и прячем EmptyRecyclerView.
+        // Иначе прячем пустой View and делаем EmptyRecyclerView видимым.
         if (mEmptyView != null && getAdapter() != null) {
             final boolean emptyViewVisible =
                     getAdapter().getItemCount() == 0;

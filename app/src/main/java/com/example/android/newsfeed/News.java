@@ -25,7 +25,7 @@
 package com.example.android.newsfeed;
 
 /**
- * An {@link News} object contains information related to a single news.
+ * Объект {@link News} содержит информацию относящуюся к конкретной новости.
  */
 
 public class News {
@@ -73,41 +73,41 @@ public class News {
     }
 
     /**
-     * Returns the title of the article
+     * Врзвращаем title статьи
      */
     public String getTitle() {
         return mTitle;
     }
 
     /**
-     * Returns the section name of the article.
+     * Возвращает раздел статьи.
      */
     public String getSection() {
         return mSection;
     }
 
     /**
-     * Returns the author name of the article.
+     * Возвращает имя автора статьи
      */
     public String getAuthor() {
         return mAuthor;
     }
     /**
-     * Returns the web publication date of the article.
+     * Возвращает дату публикации статьи
      */
     public String getDate() {
         return mDate;
     }
 
     /**
-     * Returns the website URL to find more information about the news.
+     * Возвращает ссылку URL статьи
      */
     public String getUrl() {
         return mUrl;
     }
 
     /**
-     * Returns the thumbnail of the article
+     *Ввозвращает короткое описание статьи
      */
     public String getThumbnail() {
         return mThumbnail;

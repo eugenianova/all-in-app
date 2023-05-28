@@ -54,48 +54,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The BaseArticlesFragment is a {@link Fragment} subclass that implements the LoaderManager.LoaderCallbacks
- * interface in order for Fragment to be a client that interacts with the LoaderManager. It is
- * base class that is responsible for displaying a set of articles, regardless of type.
+ BaseArticlesFragment — подкласс {@link Fragment}, кот. реализует интерфейс LoaderManager.LoaderCallbacks,
+ чтобы Fragment был клиентом, взаимодействующим с LoaderManager.
+ Это базовый класс, который отвечает за отображение набора статей независимо от их типа.
  */
 public class BaseArticlesFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>>{
 
     private static final String LOG_TAG = BaseArticlesFragment.class.getName();
 
-    /** Constant value for the news loader ID. */
+    /** Константная переменная для news loader ID. */
     private static final int NEWS_LOADER_ID = 1;
 
-    /** Adapter for the list of news */
+    /** Адаптер для списка новостей*/
     private NewsAdapter mAdapter;
 
-    /** TextView that is displayed when the recycler view is empty */
+    /** TextView который отображается когда recycler view пустой */
     private TextView mEmptyStateTextView;
 
-    /** Loading indicator that is displayed before the first load is completed */
+    /* Индикатор загрузки, который отображается до того как первая загрузка завершена*/
     private View mLoadingIndicator;
 
-    /** The {@link SwipeRefreshLayout} that detects swipe gestures and
-     * triggers callbacks in the app.
-     */
+    /** The {@link SwipeRefreshLayout} that detects swipe gestures and triggers callbacks in the app.*/
     private SwipeRefreshLayout mSwipeRefreshLayout;
+    // Компонент SwipeRefreshLayout позволяет отказаться от сторонних библиотек для реализации
+    // шаблона "Pull to Refresh", когда пользователь сдвигает экран, чтобы обновить данные.
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
-        // Find a reference to the {@link RecyclerView} in the layout
+        // Найти обращение к {@link RecyclerView} в layout
         // Replaced RecyclerView with EmptyRecyclerView
         EmptyRecyclerView mRecyclerView = rootView.findViewById(R.id.recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setHasFixedSize(true);
 
-        // Set the layoutManager on the {@link RecyclerView}
+        // Задать layoutManager в {@link RecyclerView}
         mRecyclerView.setLayoutManager(layoutManager);
 
-        // Find the SwipeRefreshLayout
+        // Найти SwipeRefreshLayout
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
-        // Set the color scheme of the SwipeRefreshLayout
+        // Задать цветовую схему для SwipeRefreshLayout
         mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.swipe_color_1),
                 getResources().getColor(R.color.swipe_color_2),
                 getResources().getColor(R.color.swipe_color_3),
@@ -113,20 +113,20 @@ public class BaseArticlesFragment extends Fragment
             }
         });
 
-        // Find the loading indicator from the layout
+        // Находим в лэйауте loading indicator
         mLoadingIndicator = rootView.findViewById(R.id.loading_indicator);
 
-        // Find the empty view from the layout and set it on the new recycler view
+        // Находим пустой view в лейауте и устанавливаем его на новый recycler view
         mEmptyStateTextView = rootView.findViewById(R.id.empty_view);
         mRecyclerView.setEmptyView(mEmptyStateTextView);
 
-        // Create a new adapter that takes an empty list of news as input
+        // Создаём новый адаптрер который берёт пустой список новостей как входные данные
         mAdapter = new NewsAdapter(getActivity(), new ArrayList<News>());
 
-        // Set the adapter on the {@link recyclerView}
+        // Устанавливаем адаптер на {@link recyclerView}
         mRecyclerView.setAdapter(mAdapter);
 
-        // Check for network connectivity and initialize the loader
+        // Проверяем интернет соединение и инициализируем loader
         initializeLoader(isConnected());
 
         return rootView;
@@ -140,40 +140,40 @@ public class BaseArticlesFragment extends Fragment
 
         Log.e(LOG_TAG,uriBuilder.toString());
 
-        // Create a new loader for the given URL
+        // Создаём новый loader для данного URL
         return new NewsLoader(getActivity(), uriBuilder.toString());
     }
 
     @Override
     public void onLoadFinished(@NonNull Loader<List<News>> loader, List<News> newsData) {
-        // Hide loading indicator because the data has been loaded
+        // Скрыть индикатор загрузки, так как данные загрузились
         mLoadingIndicator.setVisibility(View.GONE);
 
-        // Set empty state text to display "No news found."
+        // Устанавливаем пустое состояние текста лоя отображения "No news found."
         mEmptyStateTextView.setText(R.string.no_news);
 
-        // Clear the adapter of previous news data
+        // Очистить адаптер от предыдущих данных
         mAdapter.clearAll();
 
-        // If there is a valid list of {@link News}, then add them to the adapter's
-        // data set. This will trigger the recyclerView to update.
+        //Если есть допустимый список новостей {@link}, добавьте их в набор данных адаптера.
+        // Это вызовет обновление recyclerView.
         if (newsData != null && !newsData.isEmpty()) {
             mAdapter.addAll(newsData);
         }
 
-        // Hide the swipe icon animation when the loader is done refreshing the data
+        // Спрятать анимацию иконки свайпа, когда загрузчик закончил обновлять информацию
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
     @Override
     public void onLoaderReset(@NonNull Loader<List<News>> loader) {
-        // Loader reset, so we can clear out our existing data.
+        // Загрузчик переустановлен, можем очищать уже существующие данные.
         mAdapter.clearAll();
     }
 
     /**
-     * When the user returns to the previous screen by pressing the up button in the SettingsActivity,
-     * restart the Loader to reflect the current value of the preference.
+     * Когда пользователь возвращается на предыдущий экран, нажимая кнопку в SettingsActivity,
+     * перезагружаем Loader, чтобы отобразить текущее значение preference.
      */
     @Override
     public void onResume() {
@@ -181,35 +181,32 @@ public class BaseArticlesFragment extends Fragment
         restartLoader(isConnected());
     }
 
-    /**
-     *  Check for network connectivity.
-     */
+    /** Проверяем подключение к сети */
     private boolean isConnected() {
-        // Get a reference to the ConnectivityManager to check state of network connectivity
+        // Получить обращение к ConnectivityManager чтобы проверить подключение к сети
         ConnectivityManager connectivityManager = (ConnectivityManager)
                 getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        // Get details on the currently active default data network
+        // Получить подробности о текущей активной сети передачи данных по умолчанию
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
         return (networkInfo != null && networkInfo.isConnected());
     }
 
     /**
-     * If there is internet connectivity, initialize the loader as
-     * usual. Otherwise, hide loading indicator and set empty state TextView to display
-     * "No internet connection."
-     *
+     * Если интернет-соединение есть, инициализируем загрузчик как обычно.В противном случае,
+     * прячем индикатор загрузки и устанавливаем пустое состояние TextView для отображения "нет инета"
+
      * @param isConnected internet connection is available or not
      */
     private void initializeLoader(boolean isConnected) {
         if (isConnected) {
-            // Get a reference to the LoaderManager, in order to interact with loaders.
+            // Получаем обращение к LoaderManager,чтобы взаимодейтсвовать с загрузчиками.
             LoaderManager loaderManager = getLoaderManager();
-            // Initialize the loader with the NEWS_LOADER_ID
+            //Инициализиуем загрузчик NEWS_LOADER_ID
             loaderManager.initLoader(NEWS_LOADER_ID, null, this);
         } else {
-            // Otherwise, display error
+            // Иначе выводим ошибку
             // First, hide loading indicator so error message will be visible
             mLoadingIndicator.setVisibility(View.GONE);
             // Update empty state with no connection error message and image
@@ -220,7 +217,7 @@ public class BaseArticlesFragment extends Fragment
     }
 
     /**
-     * Restart the loader if there is internet connectivity.
+     * Перезагружем loader если есть интернет соединение.
      * @param isConnected internet connection is available or not
      */
     private void restartLoader(boolean isConnected) {
@@ -244,7 +241,7 @@ public class BaseArticlesFragment extends Fragment
     }
 
     /**
-     * When the user performs a swipe-to-refresh gesture, restart the loader.
+     * Когда пользователь свайпает для обновления, restart the loader.
      */
     private void initiateRefresh() {
         restartLoader(isConnected());

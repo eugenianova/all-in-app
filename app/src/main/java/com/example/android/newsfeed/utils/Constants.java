@@ -25,18 +25,18 @@
 package com.example.android.newsfeed.utils;
 
 /**
- * Store Constants for the NewsFeed app.
+ * хранит константы для приложения.
  */
 
 public class Constants {
 
     /**
-     * Create a private constructor because no one should ever create a {@link Constants} object.
+     * Создаёт приватный конструктор, так как никто не должен создавать объект {@link Constants}.
      */
     private Constants() {
     }
 
-    /**  Extract the key associated with the JSONObject */
+    /**  Извлекает ключ, связанный с объектом JSONObject */
     static final String JSON_KEY_RESPONSE = "response";
     static final String JSON_KEY_RESULTS = "results";
     static final String JSON_KEY_WEB_TITLE = "webTitle";
@@ -54,16 +54,16 @@ public class Constants {
     /** Connect timeout for setting up the HTTP request */
     static final int CONNECT_TIMEOUT = 15000; /* milliseconds */
 
-    /** HTTP response code when the request is successful */
+    /** Код ответа HTTP когда запрос успешен */
     static final int SUCCESS_RESPONSE_CODE = 200;
 
-    /** Request method type "GET" for reading information from the server */
+    /** Метод запроса типа  "GET" для считывания информации с сервера */
     static final String REQUEST_METHOD_GET = "GET";
 
-    /** URL for news data from the guardian data set */
+    /** URL для информации о новости из the guardian data set */
     public static final String NEWS_REQUEST_URL = "https://content.guardianapis.com/search";
 
-    /** Parameters */
+    /** Параметры */
     public static final String QUERY_PARAM = "q";
     public static final String ORDER_BY_PARAM = "order-by";
     public static final String PAGE_SIZE_PARAM = "page-size";
@@ -75,22 +75,23 @@ public class Constants {
     public static final String API_KEY_PARAM = "api-key";
     public static final String SECTION_PARAM = "section";
 
-    /** The show fields we want our API to return */
+    /** Показываемые поля, которые мы хотим, чтобы API вернул */
     public static final String SHOW_FIELDS = "thumbnail,trailText";
 
-    /** The format we want our API to return */
+    /** Формат, который мы хотим, чтобы API вернул */
     public static final String FORMAT = "json";
 
-    /** The show tags we want our API to return */
+    /** Показываемые теги, которые мы хотим, чтобы API вернул */
     public static final String SHOW_TAGS = "contributor";
 
     /** API Key */
-    public static final String API_KEY = "test"; // Use your API Key when API rate limit exceeded
+    public static final String API_KEY = "61040c6c-ba7a-4869-b215-d4d21a013524"; // Use your API Key when API rate limit exceeded
+    //else type "test" instead of an API key
 
     /** Default number to set the image on the top of the textView */
     public static final int DEFAULT_NUMBER = 0;
 
-    /** Constants value for each fragment */
+    /** Константы для каждого фрагмента */
     public static final int HOME = 0;
     public static final int WORLD = 1;
     public static final int SCIENCE = 2;

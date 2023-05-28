@@ -50,24 +50,24 @@ public final class NewsPreferences {
 
     /**
      * Get Uri.Builder based on stored SharedPreferences.
-     * @param context Context used to access SharedPreferences
+     * @param context Context используемый для доступа к SharedPreferences
      * @return Uri.Builder
      */
     public static Uri.Builder getPreferredUri(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-        // getString retrieves a String value from the preferences. The second parameter is the
-        // default value for this preference.
+        // getString получает значение String из настроек.
+        // Второй параметр это дефолтное значение для preference.
         String numOfItems = sharedPrefs.getString(
                 context.getString(R.string.settings_number_of_items_key),
                 context.getString(R.string.settings_number_of_items_default));
 
-        // Get the information from SharedPreferences and check for the value associated with the key
+        // Получаем информацию из SharedPreferences и проверяем  значние, связанное с ключом
         String orderBy = sharedPrefs.getString(
                 context.getString(R.string.settings_order_by_key),
                 context.getString(R.string.settings_order_by_default));
 
-        // Get the orderDate information from SharedPreferences and check for the value associated with the key
+        // Получает orderDate information из SharedPreferences and check for the value associated with the key
         String orderDate = sharedPrefs.getString(
                 context.getString(R.string.settings_order_date_key),
                 context.getString(R.string.settings_order_date_default));
@@ -77,13 +77,13 @@ public final class NewsPreferences {
                 context.getString(R.string.settings_from_date_key),
                 context.getString(R.string.settings_from_date_default));
 
-        // Parse breaks apart the URI string that is passed into its parameter
+        // Разбор разбивает строку URI, переданную в параметр
         Uri baseUri = Uri.parse(Constants.NEWS_REQUEST_URL);
 
-        // buildUpon prepares the baseUri that we just parsed so we can add query parameters to it
+        // buildUpon подготавливает baseUri которую мы только что пропарсили, чтобы мы могли добавлять параметры запроса к ней
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
-        // Append query parameter and its value. (e.g. the 'show-tag=contributor')
+        // Добавляет параметыры запроса и их значение (e.g. the 'show-tag=contributor')
         uriBuilder.appendQueryParameter(QUERY_PARAM, "");
         uriBuilder.appendQueryParameter(ORDER_BY_PARAM, orderBy);
         uriBuilder.appendQueryParameter(PAGE_SIZE_PARAM, numOfItems);
@@ -92,13 +92,13 @@ public final class NewsPreferences {
         uriBuilder.appendQueryParameter(SHOW_FIELDS_PARAM, SHOW_FIELDS);
         uriBuilder.appendQueryParameter(FORMAT_PARAM, FORMAT);
         uriBuilder.appendQueryParameter(SHOW_TAGS_PARAM, SHOW_TAGS);
-        uriBuilder.appendQueryParameter(API_KEY_PARAM, API_KEY); // Use your API key when API rate limit exceeded
+        uriBuilder.appendQueryParameter(API_KEY_PARAM, API_KEY); // В API_KEy хранится мой апи ключ к гардиан
 
         return uriBuilder;
     }
 
     /**
-     * Returns String Url for query
+     * Возвращает String Url для запроса
      * @param context Context used to access getPreferredUri method
      * @param section News section
      */

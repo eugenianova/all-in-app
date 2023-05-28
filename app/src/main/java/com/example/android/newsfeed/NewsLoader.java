@@ -32,7 +32,7 @@ import com.example.android.newsfeed.utils.QueryUtils;
 import java.util.List;
 
 /**
- * Loads a list of news by using an AsyncTask to perform the network request to the given URL.
+ * Загружает список новостей, ичпользуя AsyncTask, чтобы исполнить сетевой запрос к данной URL.
  */
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
@@ -68,7 +68,7 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
             return null;
         }
 
-        // Perform the network request, parse the response, and extract a list of news.
+        // Исполняем сетевой запрос, парсим ответ, извлекаем список новостей.
         List<News> newsData = QueryUtils.fetchNewsData(mUrl);
         return newsData;
     }

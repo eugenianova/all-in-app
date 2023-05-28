@@ -41,7 +41,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * The SettingsActivity is the activity that appears when a settings icon is clicked on.
+ * SettingsActivity это activity которая появляется когда иконка настроек нажата
  */
 
 public class SettingsActivity extends AppCompatActivity {
@@ -50,16 +50,15 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
 
-        // Navigate with the app icon in the action bar
+        // Навигация с значком приложения в панели действий
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
     /**
-     * The NewsPreferenceFragment implements the Preference.OnPreferenceChangeListener interface
-     * to set up to listen for any Preference changes made by the user.
-     * And the NewsPreferenceFragment also implements the DatePickerDialog.OnDateSetListener to
-     * receive a callback when the user has finished selecting a date.
+     * NewsPreferenceFragment реализует интерфейс Preference.OnPreferenceChangeListener
+     * чтобы следить за любим изменением Preference сделанным пользователем.
+     * NewsPreferenceFragment также реализует DatePickerDialog.OnDateSetListener чтобы получать ответ, когда пользователь закончит с выбором даты.
      */
     public static class NewsPreferenceFragment extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, DatePickerDialog.OnDateSetListener {
@@ -71,10 +70,10 @@ public class SettingsActivity extends AppCompatActivity {
 
             // Find the preference for number of items
             Preference numOfItems = findPreference(getString(R.string.settings_number_of_items_key));
-            // bind the current preference value to be displayed
+            // находит текущее значение preference для отображения
             bindPreferenceSummaryToValue(numOfItems);
 
-            // Find the "order by" Preference object according to its key
+            // Находит объект "Сортировка по.." Preference в соответствии с ключом
             Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
             // Update the summary so that it displays the current value stored in SharedPreferences
             bindPreferenceSummaryToValue(orderBy);
