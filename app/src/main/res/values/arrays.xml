@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!-- settings arrays -->
 <resources>
     <!--  for the human-readable labels -->
     <string-array name="settings_order_by_labels">

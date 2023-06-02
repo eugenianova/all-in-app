@@ -1,4 +1,4 @@
-package com.example.android.newsfeed;
+package com.example.android.myguardian;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.example.android.newsfeed", appContext.getPackageName());
+        assertEquals("com.example.android.myguardian", appContext.getPackageName());
     }
 }

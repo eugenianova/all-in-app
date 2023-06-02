@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.newsfeed.MainActivity">
+    tools:context="com.example.android.myguardian.presentation.news.NewsActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
+        <!--Toolbar для отображения "Лента новостей", иконки сайдбара и настроек.-->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:background="@android:color/white"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <!-- TabLayout that provides a horizontal layout to display tabs -->
+        <!-- TabLayout оеспечивающий горизонтальный layout чтобы отображать вкладки -->
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/sliding_tabs"
             style="@style/CategoryTab"

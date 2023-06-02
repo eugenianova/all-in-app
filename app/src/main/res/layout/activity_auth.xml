@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="281dp"
+        android:layout_height="247dp"
+        android:layout_marginTop="24dp"
+        app:srcCompat="@drawable/mygpro" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/editText_login"
+            android:layout_width="306dp"
+            android:layout_height="43dp"
+
+            android:layout_marginBottom="15dp"
+            android:drawablePadding="8dp"
+            android:hint="Логин" />
+
+        <EditText
+            android:id="@+id/editText_password"
+            android:layout_width="306dp"
+            android:layout_height="43dp"
+
+            android:layout_marginBottom="15dp"
+            android:drawablePadding="8dp"
+            android:inputType="textPassword"
+            android:hint="Пароль" />
+
+        <Button
+            android:id="@+id/auth_btn"
+            android:layout_width="285dp"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="center"
+            android:layout_marginBottom="15dp"
+            android:background="@color/nav_bar_end"
+            android:text="Авторизация"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/reg_btn"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginBottom="15dp"
+            android:layout_gravity="center"
+            android:text="Создать аккаунт"
+            android:textColor="@android:color/black" />
+    </LinearLayout>
+
+</LinearLayout>

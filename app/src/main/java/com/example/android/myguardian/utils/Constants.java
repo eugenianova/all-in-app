@@ -1,28 +1,4 @@
-/*
- * MIT License
- *
- * Copyright (c) 2018 Soojeong Shin
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-package com.example.android.newsfeed.utils;
+package com.example.android.myguardian.utils;
 
 /**
  * хранит константы для приложения.
@@ -57,7 +33,7 @@ public class Constants {
     /** Код ответа HTTP когда запрос успешен */
     static final int SUCCESS_RESPONSE_CODE = 200;
 
-    /** Метод запроса типа  "GET" для считывания информации с сервера */
+    /** Метод запроса типа "GET" для считывания информации с сервера */
     static final String REQUEST_METHOD_GET = "GET";
 
     /** URL для информации о новости из the guardian data set */
@@ -85,8 +61,7 @@ public class Constants {
     public static final String SHOW_TAGS = "contributor";
 
     /** API Key */
-    public static final String API_KEY = "61040c6c-ba7a-4869-b215-d4d21a013524"; // Use your API Key when API rate limit exceeded
-    //else type "test" instead of an API key
+    public static final String API_KEY = "61040c6c-ba7a-4869-b215-d4d21a013524";
 
     /** Default number to set the image on the top of the textView */
     public static final int DEFAULT_NUMBER = 0;

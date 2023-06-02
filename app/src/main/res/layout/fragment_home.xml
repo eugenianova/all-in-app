@@ -10,14 +10,14 @@
         android:layout_height="match_parent">
 
         <!-- Replaced android.support.v7.widget.RecyclerView with the new EmptyRecyclerView -->
-        <com.example.android.newsfeed.EmptyRecyclerView
+        <com.example.android.myguardian.presentation.news.EmptyRecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    <!-- Empty view is only visible when the list has no items. -->
+    <!-- Empty view видим только когда в списке нет элементов -->
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="wrap_content"
@@ -26,7 +26,7 @@
         android:gravity="center"
         android:textAppearance="?android:textAppearanceMedium" />
 
-    <!-- Loading indicator is only shown before the first load -->
+    <!-- Индикатор загрузки показывается только перед первой загрузкой -->
     <ProgressBar
         android:id="@+id/loading_indicator"
         style="@style/Widget.AppCompat.ProgressBar"

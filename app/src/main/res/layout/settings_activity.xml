@@ -3,8 +3,8 @@
 <fragment xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_settings"
-    android:name="com.example.android.newsfeed.SettingsActivity$NewsPreferenceFragment"
+    android:name="com.example.android.myguardian.SettingsActivity$NewsPreferenceFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.android.newsfeed.SettingsActivity">
+    tools:context="com.example.android.myguardian.SettingsActivity">
 </fragment>

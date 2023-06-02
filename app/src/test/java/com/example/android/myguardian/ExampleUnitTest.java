@@ -1,4 +1,4 @@
-package com.example.android.newsfeed;
+package com.example.android.myguardian;
 
 import org.junit.Test;
 

@@ -1,45 +1,21 @@
-/*
- * MIT License
- *
- * Copyright (c) 2018 Soojeong Shin
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
-package com.example.android.newsfeed.adapter;
+package com.example.android.myguardian.adapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.android.newsfeed.R;
-import com.example.android.newsfeed.fragment.BusinessFragment;
-import com.example.android.newsfeed.fragment.CultureFragment;
-import com.example.android.newsfeed.fragment.EnvironmentFragment;
-import com.example.android.newsfeed.fragment.FashionFragment;
-import com.example.android.newsfeed.fragment.HomeFragment;
-import com.example.android.newsfeed.fragment.ScienceFragment;
-import com.example.android.newsfeed.fragment.SocietyFragment;
-import com.example.android.newsfeed.fragment.SportFragment;
-import com.example.android.newsfeed.fragment.WorldFragment;
-import com.example.android.newsfeed.utils.Constants;
+import com.example.android.myguardian.R;
+import com.example.android.myguardian.fragment.BusinessFragment;
+import com.example.android.myguardian.fragment.CultureFragment;
+import com.example.android.myguardian.fragment.EnvironmentFragment;
+import com.example.android.myguardian.fragment.FashionFragment;
+import com.example.android.myguardian.fragment.HomeFragment;
+import com.example.android.myguardian.fragment.ScienceFragment;
+import com.example.android.myguardian.fragment.SocietyFragment;
+import com.example.android.myguardian.fragment.SportFragment;
+import com.example.android.myguardian.fragment.WorldFragment;
+import com.example.android.myguardian.utils.Constants;
 
 /**
  * Provides the appropriate {@link Fragment} for a view pager.
